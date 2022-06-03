@@ -1,0 +1,66 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+:root {
+    --container-width: 90%;
+    --color-grey: #707070;
+}
+.container {
+    width: var(--container-width);
+    display: flex;
+    margin: 0 auto;
+    flex-direction: column;
+}
+.screen__tesla {
+    margin: 0 auto;
+    position: relative;
+    z-index: 23;
+}
+.screen__tesla::after {
+    content: '';
+    z-index: 12123;
+    bottom: 24.3%;
+    transform: translateY(-50%);
+    border-radius: 100%;
+    background-position: center;
+    background-size: 140px;
+    left: 24.7%;
+    position: absolute;
+    background-image: url('./assets/png/5a38364f4877e7.8540562115136333592968.png');
+    width: 130px;
+    height: 130px;
+    
+}
+.start::after, .start::before{
+    animation: wheels .5s infinite linear;
+}
+.screen__tesla::before {
+    content: '';
+    z-index: 12123;
+    bottom: 24.3%;
+    transform: translateY(-50%);
+    border-radius: 100%;
+    /* bottom: 34%;         */
+    background-position: center;
+    background-size: 140px;
+    right: 26%;
+    /* animation: wheels .5s infinite linear; */
+    position: absolute;
+    background-image: url('./assets/png/5a38364f4877e7.8540562115136333592968.png');
+    width: 130px;
+    height: 130px;
+    background-repeat: no-repeat;
+}
+
+@keyframes wheels {
+    from {
+        transform: rotate(360deg);
+        bottom: 34%;        
+    }
+    to {
+        transform: rotate(-360deg);
+        bottom: 34%;        
+    }
+}

@@ -1,11 +1,26 @@
+@font-face {
+    font-family: Gilroy;
+    src: url('./assets/fonts/Gilroy-Medium.ttf');
+    font-weight: 500;
+}
+@font-face {
+    font-family: Gilroy;
+    src: url('./assets/fonts/Gilroy-Bold.ttf');
+    font-weight: 700;
+}
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
+    font-family: Gilroy;
 }
 :root {
     --container-width: 90%;
     --color-grey: #707070;
+    --large: 64px;
+    --medium: 48px;
+    --small: 20px;
+    --smallest: 14px;
 }
 .container {
     width: var(--container-width);
@@ -14,11 +29,21 @@
     flex-direction: column;
 }
 .screen__tesla {
+    transition: .5s ease;
     margin: 0 auto;
     position: relative;
     z-index: 23;
+    animation: move .6s ease linear;
 }
-.screen__tesla::after {
+@keyframes move {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+    }
+}
+.ch::after {
     content: '';
     z-index: 12123;
     bottom: 24.3%;
@@ -31,18 +56,61 @@
     background-image: url('./assets/png/5a38364f4877e7.8540562115136333592968.png');
     width: 130px;
     height: 130px;
-    
-}
-.start::after, .start::before{
     animation: wheels .5s infinite linear;
+
 }
-.screen__tesla::before {
+.door2 {
+    top: 20%;
+    left: 20%;
+    position: absolute;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 1000px 40px 1000px 10px;
+    width: 100px;
+    transform: rotate(45deg);
+    /* background-color: rgba(0, 0, 0, .5); */
+}
+.thirdImg {
+    display: none;
+    opacity: 0;
+}
+.scale {
+    animation: scale .6s ease;
+}
+@keyframes scale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(10);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+.secondImg {
+    opacity: 0; 
+    display: none;
+    transition: .4s ease;
+}
+.door {
+    top: 39%;
+    left: 40%;
+    position: absolute;
+    height: 150px;
+    cursor: pointer;
+    border-radius: 1000px 40px 1000px 10px;
+    width: 300px;
+    /* background-color: rgba(0, 0, 0, .5); */
+}
+.ch::before {
+    animation: wheels .5s infinite linear;
     content: '';
     z-index: 12123;
     bottom: 24.3%;
     transform: translateY(-50%);
     border-radius: 100%;
-    /* bottom: 34%;         */
+    bottom: 34%;        
     background-position: center;
     background-size: 140px;
     right: 26%;
@@ -53,7 +121,64 @@
     height: 130px;
     background-repeat: no-repeat;
 }
-
+.tesla__charachteristics {
+    width: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* position: relative; */
+    gap: 20px;
+    flex-direction: column;
+    margin: 0 auto;
+}
+.price__km {
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+.price__km span {
+    font-size: var(--small);
+    color: var(--color-grey);
+}
+.price__km h3 {
+    font-size: var(--large);
+}
+.changable__sets {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    /* align-items: center; */
+}
+.change {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.change span {
+    font-size: var(--smallest);
+    color: var(--color-grey);
+}
+.change p {
+    font-weight: 700;
+    font-size: var(--medium);
+}
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.checker {
+    display: flex;  
+    align-items: center;
+    flex-direction: column;
+}
+.checker span {
+    font-size: var(--smallest);
+    color: var(--color-grey);
+}
+.checker input {
+    margin-top: 20px;
+}
 @keyframes wheels {
     from {
         transform: rotate(360deg);
